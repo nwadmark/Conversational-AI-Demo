@@ -1,4 +1,4 @@
-# CIQ Assistant — Network Operations Prototype
+# AI Assistant — Network Operations Prototype
 
 An AI-powered conversational assistant prototype demonstrating
 proactive, persona-aware intelligence for enterprise network operations.
