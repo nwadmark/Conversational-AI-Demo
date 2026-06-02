@@ -9,7 +9,7 @@ AI-powered conversational assistant prototype demonstrating autonomous, proactiv
 - **Autonomous Actions**: AI takes multi-step actions across systems (not just recommendations)
 - **Predictive Intelligence**: Predicts capacity issues, hardware failures, and threats before they occur
 - **Voice Input Support**: Web Speech API integration for hands-free operation
-- **Glasswing/Mythos-Inspired Security**: AI-powered vulnerability detection and exploit chain analysis
+- **Security**: AI-powered vulnerability detection and exploit chain analysis
 
 ## Live Demo
 
