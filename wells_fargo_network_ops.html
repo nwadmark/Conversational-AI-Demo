@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cisco Customer Intelligence – Wells Fargo</title>
+    <title>AI Customer Intelligence Platform</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -619,10 +619,10 @@
         <div class="header">
             <div class="header-content">
                 <div class="brand">
-                    <div class="brand-icon">C</div>
+                    <div class="brand-icon">AI</div>
                     <div class="brand-text">
-                        <h1>Cisco Customer Intelligence</h1>
-                        <p>Wells Fargo Network Operations</p>
+                        <h1>AI Customer Intelligence</h1>
+                        <p>Enterprise Network Operations</p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 16px;">
@@ -1143,7 +1143,7 @@
 
         const initialMessage = {
             role: "assistant",
-            text: "Welcome to Cisco Customer Intelligence for Wells Fargo. I'm your copilot across your Cisco estate (networking, security, collaboration, data center). Which persona would you like to use today?",
+            text: "Welcome to AI Customer Intelligence. I'm your copilot across your IT estate (networking, security, collaboration, data center). Which persona would you like to use today?",
             suggestions: ["Network Ops (Global)", "Security Ops (SOC)", "Procurement / Asset Mgmt", "Executive Overview"]
         };
 
@@ -1250,8 +1250,8 @@
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${role}`;
 
-            const avatarLetter = role === 'assistant' ? 'C' : 'W';
-            const roleName = role === 'assistant' ? 'Cisco AI Assistant' : 'Wells Fargo Network Ops';
+            const avatarLetter = role === 'assistant' ? 'AI' : 'U';
+            const roleName = role === 'assistant' ? 'AI Assistant' : 'User';
 
             let html = `
                 <div class="message-header">
@@ -1501,8 +1501,8 @@
 
                     let html = `
                         <div class="message-header">
-                            <div class="avatar">C</div>
-                            <div class="role-label">Cisco AI Assistant</div>
+                            <div class="avatar">AI</div>
+                            <div class="role-label">AI Assistant</div>
                             <div class="message-time">${getCurrentTime()}</div>
                         </div>
                         <div class="message-bubble">${response.text}</div>
