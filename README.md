@@ -27,7 +27,7 @@ AI-powered conversational assistant prototype demonstrating autonomous, proactiv
 
 - Vanilla HTML, CSS, JavaScript (single self-contained file)
 - Web Speech API for voice input
-- Claude Code & Claude Sonnet 4.5 (AI-assisted development)
+- Claude Code
 
 ## Status
 
