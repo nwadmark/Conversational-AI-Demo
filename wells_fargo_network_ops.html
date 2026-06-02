@@ -1139,6 +1139,63 @@
             }
         ];
 
+        // AI Security Operations Persona - Glasswing/Mythos-inspired
+        personaConversations["AI Security Operations"] = [
+            {
+                role: "assistant",
+                text: "AI Security Operations initialized. I've deployed autonomous security models across your infrastructure—analyzing 2.4M lines of code, 847 services, and 18,642 assets continuously. This week, my AI models discovered 847 potential vulnerabilities, identified 12 critical exploit chains, and proposed 614 auto-remediation fixes. What would you like to explore first?",
+                suggestions: ["Show AI-detected vulnerabilities", "Show me exploit chains", "Analyze attack surface", "Show auto-remediation suggestions"]
+            },
+            { role: "user", text: "Show AI-detected vulnerabilities" },
+            {
+                role: "assistant",
+                text: "**AI Vulnerability Analysis (Last 7 Days)**\n\n**Critical (18)**: 8 remote code execution, 6 privilege escalation, 4 authentication bypass\n**High (143)**: SQL injection, XSS, CSRF, insecure deserialization\n**Medium (312)**: Info disclosure, misconfiguration, weak crypto\n**Low (374)**: Code quality, unused dependencies, outdated libraries\n\n**Top Finding**: RCE in custom API gateway (CVE-pending) - AI discovered an unsafe deserialization vulnerability in /api/v2/auth endpoint. Proof-of-concept exploit generated and validated in isolated sandbox. **No public disclosure yet—this is a zero-day.** \n\nShould I show you the exploit chain, propose a fix, or file an internal security advisory?",
+                suggestions: ["Show me the exploit chain", "Propose a fix", "File internal security advisory", "All of the above"]
+            },
+            { role: "user", text: "All of the above" },
+            {
+                role: "assistant",
+                text: "**Executing multi-step security response...**\n\n**1. Exploit Chain Analysis:**\n   - Entry: Unauthenticated POST to /api/v2/auth with crafted JWT\n   - Step 2: Deserialization of user_metadata field → RCE\n   - Step 3: Lateral movement via stolen service account tokens\n   - Step 4: Data exfiltration from internal database\n   - **CVSS Score**: 9.8 (Critical)\n   - **Attack Complexity**: Low (exploit requires <50 lines of code)\n\n**2. AI-Proposed Fix:**\n```python\n# Replace unsafe pickle with safe JSON schema validation\nfrom pydantic import BaseModel, validator\n\nclass UserMetadata(BaseModel):\n    role: str\n    permissions: list[str]\n    \n    @validator('*')\n    def sanitize_input(cls, v):\n        # Strict type validation, no deserialization\n        return v\n```\nFix validated in 47 test scenarios. No breaking changes detected.\n\n**3. Internal Security Advisory Filed:**\n   - Advisory ID: SEC-2026-0847\n   - Severity: Critical\n   - Affected: API Gateway v3.2.1-3.4.5\n   - Patch ETA: 4 hours (fast-track approved)\n   - Notification: Security team, SRE, Engineering leads\n\n**4. Immediate Mitigation:** I've deployed a temporary WAF rule blocking malicious payloads at the edge while the patch is prepared. \n\nWould you like me to auto-apply the fix after testing, or wait for manual approval?",
+                suggestions: ["Auto-apply after testing", "Wait for manual approval", "Show me other critical findings"]
+            },
+            { role: "user", text: "Auto-apply after testing" },
+            {
+                role: "assistant",
+                text: "**Autonomous Remediation Pipeline Activated:**\n\n**Testing Phase (30 minutes):**\n   ✓ Unit tests: 2,847 passed, 0 failed\n   ✓ Integration tests: 156 passed, 0 failed  \n   ✓ Security regression tests: 89 passed, 0 failed\n   ✓ Performance benchmarks: <2ms latency impact\n   ✓ Canary deployment to 1% traffic: No errors, monitoring...\n\n**Canary Results (15 minutes):**\n   ✓ Error rate: 0.00% (baseline: 0.01%)\n   ✓ Latency p50: 42ms (baseline: 43ms) ✓ Improved\n   ✓ Throughput: 1,247 req/s (baseline: 1,240 req/s)\n   ✓ Security telemetry: 0 malicious attempts blocked at WAF\n\n**Auto-Deployment Proceeding:**\n   → Rolling deployment to 10% → 25% → 50% → 100%\n   → Estimated completion: 22 minutes\n   → Rollback triggers armed (auto-rollback if error rate >0.1%)\n   → Internal advisory updated: Patch deployed\n   → WAF rule scheduled for removal in 24h (after full deployment verified)\n\n**Zero-day vulnerability patched autonomously in 67 minutes from discovery to full deployment.** This is the AI-powered agentic future—I found it, analyzed it, fixed it, tested it, and deployed it.\n\nShall I analyze the other exploit chains I discovered?",
+                suggestions: ["Yes, show me exploit chains", "How many zero-days have you found total?", "What else can you do autonomously?"]
+            },
+            { role: "user", text: "Yes, show me exploit chains" },
+            {
+                role: "assistant",
+                text: "**AI-Discovered Exploit Chains (Glasswing-style Analysis):**\n\nI use advanced reasoning to chain multiple low/medium vulnerabilities into critical exploits that traditional scanners miss. Here are the top chains:\n\n**Chain #1: \"Shadow Admin\" (CVSS 9.1)**\n   1. Info disclosure in /debug endpoint → reveals service account names\n   2. Weak password policy on service accounts → brute-forceable\n   3. Privilege escalation via race condition in RBAC → admin access\n   4. **Impact**: Unauthenticated attacker → full admin in <2 hours\n   **Status**: Fix proposed, tested, ready to deploy\n\n**Chain #2: \"Data Leakage Pipeline\" (CVSS 8.7)**\n   1. CORS misconfiguration on API → cross-origin requests allowed\n   2. Missing rate limiting → unlimited API calls\n   3. GraphQL field-level auth bypass → internal data exposed\n   4. **Impact**: Competitor could scrape entire customer database\n   **Status**: Temporary WAF rules deployed, permanent fix in review\n\n**Chain #3: \"Container Escape\" (CVSS 9.4)**\n   1. Docker daemon exposed on internal network (misconfiguration)\n   2. Vulnerable container image with known CVE → code exec in container\n   3. Docker socket mount → container escape\n   4. Host kernel exploit → full infrastructure compromise\n   **Impact**: Single compromised container → entire Kubernetes cluster\n   **Status**: CRITICAL - Immediate remediation required\n\n**The chain analysis shows I'm not just finding bugs—I'm thinking like an attacker, chaining steps together that humans often miss.**\n\nFor Chain #3 (Container Escape), this is critical. Should I:\n   A) Auto-remediate immediately (patch kernel, rotate secrets, isolate network)\n   B) Create incident response plan for manual execution\n   C) Both - auto-remediate with full audit trail",
+                suggestions: ["Auto-remediate immediately", "Create incident response plan", "Both - auto-remediate with audit"]
+            },
+            { role: "user", text: "Both - auto-remediate with audit" },
+            {
+                role: "assistant",
+                text: "**Executing Critical Incident Response + Autonomous Remediation:**\n\n**Incident Response Plan Created (IR-2026-0312):**\n   - Severity: P0 (Infrastructure-wide impact)\n   - Commander: Auto-assigned to on-call SRE lead\n   - War room: Created in Slack #incident-0312\n   - Timeline: Auto-logging all actions with timestamps\n   - Stakeholders: Security, SRE, Engineering, CISO notified\n\n**Autonomous Actions (with full audit trail):**\n\n**[00:00] Detection Phase:**\n   ✓ AI identified vulnerable kernel version (5.4.0-42) across 847 containers\n   ✓ Docker socket mounts detected in 23 high-risk containers\n   ✓ Exploit PoC generated and validated in isolated sandbox\n   ✓ Attack path mapped: Container → Host → Control plane → Data plane\n\n**[00:02] Immediate Containment:**\n   ✓ Network policies updated - isolated vulnerable containers from production\n   ✓ Pod security policies enforced - blocking new socket mounts\n   ✓ Secrets rotation initiated - all service account tokens invalidated\n   ✓ Audit logs captured - baseline for forensics\n\n**[00:05] Remediation:**\n   ✓ Kernel security patches staged (5.4.0-196 with CVE fixes)\n   ✓ Container images rebuilt without vulnerable base layers\n   ✓ Host patching - rolling update across 47 nodes (0 downtime)\n   ✓ Configuration drift corrected - removed 23 risky socket mounts\n\n**[00:18] Validation:**\n   ✓ Re-scanned infrastructure - 0 exploitable paths found\n   ✓ Penetration testing - AI attempted exploit, failed (confirmed patched)\n   ✓ Compliance scan - CIS Kubernetes Benchmark score: 94/100 (↑12 points)\n\n**[00:22] Documentation:**\n   ✓ Full incident timeline exported to wiki\n   ✓ Post-mortem report auto-generated with root cause analysis\n   ✓ Recommendations for prevention: Security policies, image scanning, runtime monitoring\n\n**Incident resolved in 22 minutes. Infrastructure is now secure. All actions logged and auditable.**\n\nThis is what AI-powered security operations looks like—autonomous, fast, comprehensive, and transparent. \n\nWould you like to see the attack surface analysis, or explore what other AI security capabilities I offer?",
+                suggestions: ["Analyze attack surface", "What other AI capabilities do you have?", "Show me the security posture improvement"]
+            },
+            { role: "user", text: "Analyze attack surface" },
+            {
+                role: "assistant",
+                text: "**AI-Powered Attack Surface Analysis:**\n\nI continuously map every internet-facing service, API, port, and potential entry point across your infrastructure. Here's what I found:\n\n**External Attack Surface:**\n   - **23 internet-facing services** (web apps, APIs, VPNs)\n   - **147 open ports** across public IPs\n   - **8 shadow IT services** (unauthorized deployments I discovered)\n   - **12 forgotten test environments** still running in production\n   - **3 legacy systems** (no security updates in >2 years)\n\n**High-Risk Services:**\n\n**1. VPN Gateway (208.67.2.10:443)**\n   - Risk Score: 8.2/10\n   - Issues: Vulnerable OpenVPN 2.4.7, weak ciphers, no MFA\n   - Exposure: 847 remote employees, 2,400 daily connections\n   - **AI Recommendation**: Upgrade to OpenVPN 2.6.x, enable MFA, rotate certificates\n   - **Predicted Attack Likelihood**: 72% within 90 days (Trending threat: VPN exploits)\n\n**2. Legacy File Transfer API (10.20.30.40:8080)**\n   - Risk Score: 9.1/10\n   - Issues: No authentication, directory traversal vuln, runs as root\n   - Exposure: Accessible from internet via misconfigured firewall\n   - **AI Recommendation**: Immediate shutdown (no legitimate traffic detected in 6 months)\n   - **Predicted Impact**: Data breach if exploited (PII, financial records exposed)\n\n**3. Customer Portal (portal.company.com)**\n   - Risk Score: 6.4/10\n   - Issues: Session fixation, weak CSRF protection, GraphQL injection\n   - Exposure: 142,000 customer accounts\n   - **AI Recommendation**: Deploy fixes I've already prepared, enable WAF rules\n\n**Shadow IT Discovery (Critical):**\n\nMy AI discovered 8 unauthorized services running in production:\n   - Developer's personal Jenkins instance (exposed admin panel)\n   - Unmonitored database replica (no encryption at rest)\n   - Test Jupyter notebook server (credential leakage risk)\n   - 5 abandoned microservices (no owner, no maintenance)\n\n**AI Predicted Threats (Proactive Intelligence):**\n\nBased on global threat intelligence and your attack surface, I predict:\n   - **68% probability** of targeted phishing campaign in next 30 days\n   - **45% probability** of credential stuffing attack on customer portal\n   - **23% probability** of ransomware attempt via VPN vulnerabilities\n\n**Autonomous Actions I Can Take:**\n   1. Auto-shutdown legacy file transfer API (zero risk to operations)\n   2. Deploy fixes for customer portal (tested, ready)\n   3. Enable MFA on VPN (gradual rollout to avoid user disruption)\n   4. Notify owners of shadow IT services (+ set 7-day shutdown deadline)\n\nShould I proceed with autonomous remediation, or would you prefer manual approval for each action?",
+                suggestions: ["Auto-remediate all low-risk items", "Manual approval for critical items", "Show me the predicted threat details"]
+            },
+            { role: "user", text: "Auto-remediate all low-risk items" },
+            {
+                role: "assistant",
+                text: "**Autonomous Attack Surface Reduction in Progress:**\n\n**[Automated Actions - No Approval Needed]:**\n\n✓ **Legacy File Transfer API shutdown** (10.20.30.40:8080)\n   - Analyzed traffic: 0 legitimate requests in 180 days\n   - Graceful shutdown initiated\n   - Firewall rules removed\n   - DNS records cleaned up\n   - **Attack surface reduced by 11.2%**\n\n✓ **Shadow IT notifications sent**\n   - Identified owners via git commits, LDAP, and Slack activity\n   - Automated emails sent with 7-day shutdown deadline\n   - Security team CC'd for tracking\n   - Auto-calendar reminders set for follow-up\n\n✓ **Abandoned microservices decommissioned (3 of 5)**\n   - Confirmed zero traffic for >6 months\n   - Databases archived to cold storage\n   - Kubernetes pods terminated\n   - Cost savings: ~$2,400/month\n\n✓ **WAF rules deployed for customer portal**\n   - GraphQL injection protection enabled\n   - Rate limiting: 100 req/min per IP\n   - CSRF token validation enforced\n   - **Zero downtime deployment complete**\n\n✓ **TLS certificate rotation**\n   - Discovered 8 expiring certs (within 30 days)\n   - Auto-renewed via Let's Encrypt\n   - Updated load balancers\n   - Validated: All endpoints serving valid certs\n\n**[Pending Manual Approval - Higher Risk]:**\n\n⏳ **VPN Gateway Upgrade** (requires user coordination)\n   - Upgrade plan prepared\n   - Maintenance window suggested: Saturday 2:00-4:00 AM\n   - User communication drafted\n   - Rollback plan ready\n   → **Awaiting your approval**\n\n⏳ **MFA Enforcement on VPN** (user impact)\n   - 847 employees will need to enroll\n   - Gradual rollout: 10% week 1 → 100% week 4\n   - Support tickets estimated: ~120\n   - Training materials prepared\n   → **Awaiting your approval**\n\n**Attack Surface Summary:**\n   - **Before**: 23 internet-facing services, 147 open ports\n   - **After**: 19 services (-4), 132 ports (-15)\n   - **Risk Score**: 7.2 → 5.1 (29% reduction)\n   - **Time to remediate**: 8 minutes (autonomous AI)\n\n**This is the power of AI-driven security operations: I identified the risks, prioritized by impact, and autonomously fixed what was safe to fix—all while you focused on strategic decisions.**\n\nReady to approve the VPN upgrade and MFA rollout? Or would you like to see the security posture improvement metrics?",
+                suggestions: ["Approve VPN upgrade and MFA", "Show security posture metrics", "What other AI security capabilities exist?"]
+            },
+            { role: "user", text: "Show security posture metrics" },
+            {
+                role: "assistant",
+                text: "**AI-Powered Security Posture Dashboard:**\n\n**Overall Security Score: 87/100** (↑13 points from last month)\n\n**Breakdown by Domain:**\n\n**1. Vulnerability Management: 92/100** (↑18)\n   - Mean time to detect (MTTD): 14 minutes (was: 8.3 days)\n   - Mean time to remediate (MTTR): 47 minutes (was: 22 days)\n   - Zero-days discovered: 18 (before public disclosure)\n   - Auto-remediated vulnerabilities: 614 this week\n   - **AI Impact**: 99.7% faster detection, 98% faster remediation\n\n**2. Attack Surface: 85/100** (↑12)\n   - Internet-facing services: 19 (↓4 from last week)\n   - Exploitable attack paths: 3 (↓9)\n   - Shadow IT services: 2 (↓6, still in remediation)\n   - Unnecessary open ports: 132 (↓15)\n   - **AI Impact**: Continuous discovery and autonomous reduction\n\n**3. Threat Prevention: 89/100** (↑7)\n   - Blocked attack attempts: 2,847 this week\n   - False positive rate: 0.3% (AI learning reduced from 12%)\n   - Predicted threats prevented: 5 (VPN brute-force, API abuse)\n   - Exploit chains neutralized: 12\n   - **AI Impact**: Predictive blocking before attacks occur\n\n**4. Compliance & Governance: 81/100** (↑8)\n   - Security policies enforced: 94%\n   - Configuration drift instances: 12 (auto-corrected)\n   - Audit readiness: 96%\n   - Data classification accuracy: 89%\n   - **AI Impact**: Real-time policy enforcement and drift correction\n\n**5. Incident Response: 94/100** (↑21)\n   - P0 incidents resolved: 2 (avg resolution time: 18 min)\n   - Auto-triage accuracy: 96%\n   - Playbook automation: 87% of incidents handled autonomously\n   - False alarms: 2.1% (↓from 31% without AI)\n   - **AI Impact**: Autonomous resolution of 87% of incidents\n\n**Comparative Metrics (Industry Benchmarks):**\n\n| Metric | Your Org (AI-Powered) | Industry Avg | Top Quartile |\n|--------|----------------------|--------------|-------------|\n| MTTD | 14 min | 197 hours | 24 hours |\n| MTTR | 47 min | 18.2 days | 3.5 days |\n| Security Score | 87/100 | 63/100 | 78/100 |\n| Zero-days found | 18/yr | 0.2/yr | 1.1/yr |\n| Incident auto-resolve | 87% | 4% | 18% |\n\n**You're not just in the top quartile—you're defining a new category: AI-first security operations.**\n\n**Cost Impact:**\n   - Security team capacity: 4.2 FTE → Handling 12x more volume\n   - Manual pen-testing cost avoided: ~$380K/year\n   - Breach risk reduction (estimated): 72% → $2.4M potential loss prevention\n   - ROI on AI security: 847% annually\n\n**What's Next:**\n   - Continue autonomous vulnerability management\n   - Expand AI models to cover application security, cloud security\n   - Train custom AI models on your specific attack patterns\n   - Integrate with threat intelligence feeds for predictive defense\n\nThis is the AI-powered agentic future of security: autonomous, intelligent, fast, and measurably effective.\n\nWhat would you like to explore next?",
+                suggestions: ["Train custom AI models", "Expand to cloud security", "Show me threat intelligence integration", "I'm done - this is impressive"]
+            }
+        ];
+
         // Procurement / Asset Mgmt Persona
         personaConversations["Procurement / Asset Mgmt"] = [
             {
@@ -1337,8 +1394,8 @@
 
         const initialMessage = {
             role: "assistant",
-            text: "Welcome to AI Customer Intelligence. I'm your copilot across your IT estate (networking, security, collaboration, data center). Which persona would you like to use today?",
-            suggestions: ["Network Ops (Global)", "Security Ops (SOC)", "Procurement / Asset Mgmt", "Executive Overview"]
+            text: "Welcome to AI Customer Intelligence. I'm your autonomous copilot across your IT estate (networking, security, collaboration, data center). I can take actions on your behalf, predict issues before they occur, and orchestrate across systems. Which persona would you like to use today?",
+            suggestions: ["Network Ops (Global)", "Security Ops (SOC)", "AI Security Operations", "Procurement / Asset Mgmt", "Executive Overview"]
         };
 
         let conversation = [];
@@ -1482,6 +1539,52 @@
                         description: "18,642 assets across 347 active contracts",
                         action: "View Breakdown →",
                         question: "Show spend analysis"
+                    }
+                ]
+            },
+            "AI Security Operations": {
+                title: "AI-Powered Security Operations",
+                subtitle: "Autonomous vulnerability detection, exploit analysis, and threat prevention",
+                cards: [
+                    {
+                        type: "critical",
+                        icon: "🤖",
+                        badge: "AI-Detected",
+                        title: "Vulnerabilities",
+                        value: "847",
+                        description: "AI model analyzed codebase and found 847 potential vulnerabilities this week",
+                        action: "Review Findings →",
+                        question: "Show AI-detected vulnerabilities"
+                    },
+                    {
+                        type: "critical",
+                        icon: "⛓️",
+                        badge: "Exploit Chains",
+                        title: "Chained Attacks",
+                        value: "12",
+                        description: "AI identified 12 exploit chains (3+ linked vulnerabilities) requiring immediate attention",
+                        action: "Analyze Chains →",
+                        question: "Show me exploit chains"
+                    },
+                    {
+                        type: "warning",
+                        icon: "🎯",
+                        badge: "Attack Surface",
+                        title: "Exposed Services",
+                        value: "23",
+                        description: "AI analysis shows 23 internet-facing services with elevated risk profiles",
+                        action: "Assess Surface →",
+                        question: "Analyze attack surface"
+                    },
+                    {
+                        type: "success",
+                        icon: "✨",
+                        badge: "Auto-Fix",
+                        title: "AI Remediation",
+                        value: "614",
+                        description: "AI proposed and validated fixes for 614 low-severity issues, awaiting approval",
+                        action: "Review Fixes →",
+                        question: "Show auto-remediation suggestions"
                     }
                 ]
             },
