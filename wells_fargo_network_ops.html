@@ -857,175 +857,50 @@
         personaConversations["Network Ops (Global)"] = [
             {
                 role: "assistant",
-                text: "Great. I've loaded your global Network Ops view. Where should I deliver critical alerts (outages, PSIRTs, EOL/EOS, contract risk)?",
+                text: "Network Operations dashboard initialized. I've autonomously analyzed your global infrastructure: 847 sites, 18,642 devices, 2.4M network flows/sec. I'm continuously predicting issues before they occur, auto-optimizing performance, and self-healing failures. **Proactive Alert**: I've already identified 3 issues requiring your attention this morning. Where should I send critical alerts?",
                 suggestions: ["Webex + Email", "Teams only", "Email only"]
             },
             { role: "user", text: "Webex + Email" },
             {
                 role: "assistant",
-                text: "Done. Here's your live dashboard: Uptime 99.94% (30d). 46 branches near WAN saturation. 3 critical PSIRTs impact 217 devices (Catalyst 9300, ASA 5516, FXOS). 5 contracts expire in 60 days. 12 licenses over-allocated. 14 EOL devices in production. What do you want to tackle first?",
-                suggestions: ["PSIRTs first", "Branch capacity risks", "Contracts & Licenses"]
+                text: "**Alert routing configured.** Here's your live operational picture:\n\n**Performance**: 99.94% uptime (30d) | Target: 99.95%\n**Predictive Alerts**: 3 issues I've autonomously detected:\n   • **CRITICAL**: 46 branches trending toward WAN saturation (Newark in 19 days)\n   • **HIGH**: 3 PSIRTs affecting 217 devices (IOS-XE, ASA, FXOS)\n   • **MEDIUM**: 5 contracts expiring in 60 days, 14 EOL devices still in production\n\n**Autonomous Actions I've Already Taken**:\n   ✓ Opened RMA for 3 failing fan modules (predicted failure in 48h)\n   ✓ Pre-staged firmware for PSIRT remediation (tested in lab)\n   ✓ Generated capacity forecast: $2.4M budget needed for 2026 expansion\n\nWhat should we tackle first?",
+                suggestions: ["PSIRTs first - show me the plan", "Branch capacity - predict and prevent", "Show me what you've done autonomously"]
             },
-            { role: "user", text: "PSIRTs first" },
+            { role: "user", text: "PSIRTs first - show me the plan" },
             {
                 role: "assistant",
-                text: "Security Advisories mapped to your assets: • IOS-XE on C9300 — 143 devices. Fix: 17.9.5a. • ASA 5516 — 38 appliances. Fix: migrate to FTD or 9.16(5)27. • FXOS — 36 chassis. Fix: 2.14(1f). Want me to draft change plans, stage a pilot, or export to ServiceNow?",
-                suggestions: ["Stage pilot in lab", "Draft change plan", "Export to ServiceNow"]
+                text: "**PSIRT Remediation Plan (Autonomous Analysis Complete)**\n\n**I've already mapped these advisories to your exact asset inventory:**\n\n**1. IOS-XE Critical Vulnerability** (CVSS 9.1)\n   - **Affected**: 143 Catalyst 9300 switches across 47 branch offices\n   - **Fix**: Upgrade to 17.9.5a\n   - **My Analysis**: I tested this upgrade in your lab environment last night—0 issues found\n   - **Business Impact**: 2-hour maintenance window per site, zero user downtime if done correctly\n   - **Auto-generated rollback plan**: Yes, tested and verified\n\n**2. ASA Firewall RCE Vulnerability** (CVSS 9.8)\n   - **Affected**: 38 ASA 5516 firewalls (datacenter perimeter)\n   - **Fix**: Migrate to FTD or patch to 9.16(5)27\n   - **My Recommendation**: Migrate to FTD (you've been planning this anyway)\n   - **Migration plan**: I've auto-generated configs, tested in sandbox, zero policy gaps\n\n**3. FXOS Privilege Escalation** (CVSS 8.4)\n   - **Affected**: 36 Firepower chassis\n   - **Fix**: Upgrade to 2.14(1f)\n   - **Auto-staged**: Firmware downloaded, integrity verified, ready to deploy\n\n**Multi-Phase Rollout I'm Proposing:**\n   - **Ring 0** (Low-risk pilot): Sacramento, Tempe branches (2 sites, 8 devices)\n   - **Ring 1** (Regional validation): 5 regional offices (47 devices)\n   - **Ring 2** (Core deployment): SF, Charlotte hubs (88 devices)\n   - **Ring 3** (Datacenter): ASA→FTD migration + FXOS patching\n\n**Maintenance Windows**: Tue/Thu 01:00-03:00 local time (I've checked your change calendar—no conflicts)\n\nShould I proceed with Ring 0 pilot, or do you want to customize the approach?",
+                suggestions: ["Proceed with Ring 0 pilot", "Customize the rings and windows", "Show me test results from lab"]
             },
-            { role: "user", text: "Stage pilot in lab" },
+            { role: "user", text: "Proceed with Ring 0 pilot" },
             {
                 role: "assistant",
-                text: "Proposed pilot rings and windows: Ring 0 (2 low-risk branches: Sacramento, Tempe), Ring 1 (5 regional offices), Ring 2 (SF/Charlotte hubs). Maintenance Tue/Thu 01:00–03:00 local. Proceed or customize?",
-                suggestions: ["Use suggested rings & windows", "Customize rings", "Cancel"]
+                text: "**Ring 0 Pilot Deployment Initiated (Autonomous Execution)**\n\n**[Pre-Deployment - Auto-completed 2 minutes ago]:**\n   ✓ Created ServiceNow Change Request (CHG0087234)\n   ✓ Uploaded runbooks to Webex 'NetOps-Change' space\n   ✓ Captured baseline health metrics (CPU, memory, interface errors, syslog patterns)\n   ✓ Generated automated rollback scripts (tested, ready)\n   ✓ Notified site managers at Sacramento & Tempe (automated email + calendar block)\n\n**[Scheduled Deployment - Tuesday 01:00 PT]:**\n   - **Sacramento Branch** (4 C9300 switches)\n   - **Tempe Branch** (4 C9300 switches)\n   - **Total duration**: 90 minutes (45 min/site)\n   - **User impact**: ZERO (I'm using StackWise redundancy for hitless upgrade)\n\n**[Post-Deployment Validation - Automated]:**\n   I'll automatically verify:\n   - All interfaces up/up\n   - No CRC errors, packet loss, or latency spikes\n   - Routing tables converged\n   - OSPF/EIGRP neighbor relationships stable\n   - Syslog clean (no critical errors)\n   - User complaint tickets = 0\n\n**[Monitoring During Pilot - Real-time]:**\n   I'll monitor network telemetry every 30 seconds and auto-rollback if:\n   - Interface errors spike >5%\n   - User complaints detected\n   - Connectivity lost >2 minutes\n\nI've also attached comprehensive health baselines to the CR. Want to see them, or shall we move on to the capacity issue I detected?",
+                suggestions: ["Show me the health baselines", "Skip to capacity issue - that's more urgent", "What happens if the pilot fails?"]
             },
-            { role: "user", text: "Use suggested rings & windows" },
+            { role: "user", text: "Skip to capacity issue - that's more urgent" },
             {
                 role: "assistant",
-                text: "Pilots scheduled. I've posted runbooks to your Webex 'NetOps-Change' space and opened a ServiceNow CR with rollback, pre/post checks, and CAB notes. Include automated health baselines (CPU/mem, interface errors, syslogs) in the CR?",
-                suggestions: ["Yes, attach baselines", "No, keep lean"]
+                text: "**Branch Capacity Crisis - Predictive Analysis & Autonomous Prevention**\n\n**I've been monitoring network growth trends and I've predicted a capacity crisis. Here's what I found:**\n\n**Critical Sites (Saturation within 30 days):**\n\n**1. Newark Branch** (IMMINENT - 19 days to saturation)\n   - **Current**: 1Gbps DIA circuit at 87% peak utilization\n   - **Growth trend**: +18% Month-over-Month (driven by cloud migration)\n   - **Prediction**: Will hit 100% saturation on June 21st at 2:47 PM\n   - **User impact**: Slow app performance, Zoom/Webex degradation, complaints spike\n   - **My Solution**: Order 2Gbps circuit NOW (45-day carrier lead time) + temporary SaaS breakout\n\n**2. Daly City Branch** (Medium risk - 42 days)\n   - **Current**: 500Mbps at 92% during market hours (9:00 AM - 4:00 PM)\n   - **Issue**: LTE failover flapping (cellular backup activating randomly)\n   - **Root cause**: I analyzed logs—primary circuit is fine, but LTE signal weak\n   - **My Solution**: Increase CIR to 750Mbps + relocate LTE antenna (I've identified better position)\n\n**3. Austin Domain Office** (60 days, but easily fixable)\n   - **Current**: Adequate bandwidth, but QoS misconfiguration\n   - **Issue**: Zoom/Webex traffic misclassified as \"Best Effort\" instead of \"Realtime\"\n   - **Impact**: Poor video quality complaints (43 tickets last month)\n   - **My Solution**: Apply corrected QoS template (I've already generated and tested it)\n\n**Here's what I'm recommending we do RIGHT NOW:**\n\n**Immediate Actions (I can execute autonomously):**\n   1. **Austin QoS Fix** - Apply template in <5 minutes, zero downtime\n   2. **Newark Carrier Quote** - Auto-generate RFP, send to your approved carrier partners\n   3. **Newark Temporary Fix** - Enable Office 365 local breakout (bypass VPN for SaaS traffic)\n   4. **Daly City CIR Increase** - Draft order for carrier, await your approval\n\nWhich would you like me to execute first?",
+                suggestions: ["Fix Austin QoS now (fastest win)", "Generate Newark carrier quote", "Do all immediate actions autonomously"]
             },
-            { role: "user", text: "Yes, attach baselines" },
+            { role: "user", text: "Do all immediate actions autonomously" },
             {
                 role: "assistant",
-                text: "Attached. Next, Branch capacity: 46 sites at risk. Top 3: Daly City (92% peak, LTE flaps), Austin Domain (QoS misclassifies Zoom/Webex), Newark (1Gb DIA, +18% MoM growth; saturation in 19 days). Recommended: increase CIR Daly City, fix QoS, order 2Gb DIA for Newark with temporary SaaS breakout. What should we do?",
-                suggestions: ["Apply QoS template now", "Open carrier quote", "Create SD-WAN policy change"]
+                text: "**Executing All Immediate Actions Autonomously... (Real-time updates)**\n\n**[00:00] Starting parallel execution across 3 sites...**\n\n**[ACTION 1: Austin QoS Fix - IN PROGRESS]**\n   [00:15] Connected to DNA Center controller\n   [00:22] Retrieved current QoS policy from Austin devices (47 switches)\n   [00:35] Generated corrected policy: WF-QoS-Branch-v7\n   [00:40] Changes identified:\n      - Remove: class-map VIDEO-OLD (deprecated)\n      + Add: class-map COLLAB-REALTIME (match dscp cs4, ef)\n      + Add: policy-map WAN-OUT with priority 30% for realtime traffic\n   [00:48] Running pre-deployment validation... ✓ No conflicts detected\n   [00:52] Pushing config to Austin switches via DNA Center...\n   [01:15] Config applied to 47 switches - ZERO errors\n   [01:20] Running post-checks...\n      ✓ Voice VLAN unaffected\n      ✓ MOS score improved: 3.2 → 3.6 (+0.4)\n      ✓ Jitter reduced: 24ms → 16ms (-8ms)\n      ✓ Packet loss: 0.02% → 0.00%\n   [01:25] ✅ **COMPLETE** - Austin QoS fixed, users will notice immediate improvement\n   [01:27] Notification sent to Austin branch manager with before/after metrics\n\n**[ACTION 2: Newark Carrier Quote - IN PROGRESS]**\n   [00:05] Generating RFP for 2Gbps DIA circuit upgrade\n   [00:18] Retrieved your approved carrier vendors: AT&T, Verizon, Lumen\n   [00:25] Auto-populated RFP with:\n      - Current circuit details (account #, site address, existing bandwidth)\n      - Required bandwidth: 2Gbps (or 3Gbps if price competitive)\n      - Desired install date: Within 30 days (expedited)\n      - Contract term: 3-year with co-term option\n      - SLA requirements: 99.9% uptime, 4-hour repair\n   [00:40] RFP sent to 3 carriers via automated procurement portal\n   [00:42] ✅ **COMPLETE** - Quotes expected within 48-72 hours\n   [00:43] Forwarded quote requests to Procurement team for tracking\n\n**[ACTION 3: Newark Temporary SaaS Breakout - IN PROGRESS]**\n   [00:10] Analyzing traffic patterns at Newark...\n      - Office 365: 340Mbps (39% of total traffic)\n      - Zoom: 180Mbps (21%)\n      - Cloud apps: 145Mbps (17%)\n      - **Total SaaS**: 665Mbps (76% of bandwidth!)\n   [00:28] All of this is currently hair-pinning through your datacenter VPN (inefficient!)\n   [00:35] Configuring SD-WAN local breakout for trusted SaaS traffic:\n      + Office 365 (Microsoft IP ranges)\n      + Zoom (verified via Umbrella)\n      + Salesforce, Workday, ServiceNow\n   [00:50] Pushing SD-WAN policy update to Newark router...\n   [01:05] ✅ **COMPLETE** - SaaS traffic now goes direct to internet\n   [01:06] **Immediate impact**: VPN utilization dropped from 87% → 31%!\n   [01:08] Predicted saturation date: June 21 → August 15+ (crisis averted!)\n\n**[01:30] All Actions Complete - Summary:**\n\n✅ **Austin**: QoS fixed, video quality improved immediately, 0 user impact\n✅ **Newark**: Carrier RFPs sent, temporary fix deployed (56% bandwidth freed up!)\n✅ **Newark**: Crisis timeline extended from 19 days → 75+ days\n\n**Business Outcomes:**\n   - $0 spent (no hardware, no contracts yet)\n   - 2.5 hours of autonomous work\n   - 90 users at Austin will notice better Zoom quality TODAY\n   - Newark capacity crisis deferred 2+ months\n   - Procurement has 3 competitive quotes incoming\n\n**Next Steps I Recommend:**\n   - Monitor Austin for 48h to validate QoS improvement (I'll do this automatically)\n   - Review carrier quotes when they arrive (I'll send you comparison analysis)\n   - Proceed with Daly City CIR upgrade (waiting on your approval)\n\nWhat would you like to focus on next?",
+                suggestions: ["Show me proactive care items I should know about", "Review the compliance scan you mentioned", "Show me data center ACI posture"]
             },
-            { role: "user", text: "Apply QoS template now" },
+            { role: "user", text: "Show me proactive care items I should know about" },
             {
                 role: "assistant",
-                text: "Previewing config via Cisco DNA Center: Apply 'WF-QoS-Branch-v7' to Austin Domain. Impact: +1 class-map, +1 policy-map, no reload. See diff or proceed?",
-                suggestions: ["Show diff", "Proceed", "Schedule tonight"]
+                text: "**Proactive Care & Predictive Maintenance (AI-Powered Intelligence)**\n\nI'm continuously monitoring your infrastructure and predicting issues before they impact users. Here's what I've found:\n\n**1. Contract & License Renewals (Predicted Risk: HIGH)**\n\n📅 **SmartNet Contracts Expiring** (60-day window):\n   - 120x Catalyst 9300 switches in Southeast region\n   - **Expiration**: August 14, 2026 (43 days from now)\n   - **Coverage value**: $423K annually\n   - **My Prediction**: If not renewed, you'll lose 24x7 support + advance hardware replacement\n   - **Action**: I've drafted renewal quotes (1-year, 3-year, 5-year co-term options)\n\n📊 **Umbrella SIG License Pool** (Utilization Risk):\n   - **Current**: 95% utilization (2,180 licenses purchased, 2,071 active)\n   - **Trend**: +3% month-over-month growth\n   - **Prediction**: Will hit 100% in 47 days (new employees + contractors)\n   - **Impact**: New users won't get DNS security\n   - **My Recommendation**: Purchase 200 additional licenses now OR reclaim 320 inactive (terminated users)\n\n**2. Hardware Failures (Predictive RMA)**\n\n🔧 **Predicted Failure - Charlotte Datacenter**:\n   - **Device**: Catalyst 9500-24Y core switch (S/N: FOC2447X8KL)\n   - **Issue**: 3 fan modules showing declining RPM (trending to failure)\n   - **Current RPM**: Fan1: 8,200 (normal: 9,500), Fan2: 8,100, Fan3: 7,800\n   - **My Prediction**: Complete fan failure in 48-72 hours → temperature spike → auto-shutdown\n   - **Impact**: Datacenter connectivity loss for ~400 users\n   - **Action**: I've opened advance hardware replacement RMA (ship today, arrive tomorrow 10:00 AM)\n\n**3. Overprovisioned Licenses (Cost Savings Opportunity)**\n\n💰 **License Waste Detected**:\n   - **DNA Advantage**: 345 licenses purchased, only 300 actively used (45 wasted)\n   - **ISE Plus**: 4,200 licenses, 3,847 active (353 unused)\n   - **Annual waste**: ~$184K in unused licenses\n   - **My Recommendation**: Reclaim unused licenses, redeploy or reduce next renewal\n\n**4. End-of-Life Equipment (Planning Required)**\n\n⏰ **EOL Devices Still in Production**:\n   - **Catalyst 2960-X**: 14 devices (EOL reached: January 2025)\n   - **ASA 5515**: 6 firewalls (EOS: May 2025, no more software updates)\n   - **Risk**: No security patches, vulnerability exposure, compliance violations\n   - **Budget Impact**: ~$240K to refresh all EOL equipment\n   - **My Recommendation**: Build replacement plan for Q4 2026\n\n**AUTONOMOUS ACTIONS I CAN TAKE:**\n\n**Option A: Open all cases now**\n   - File RMA for failing fans (done autonomously)\n   - Request SmartNet renewal quotes (1/3/5-year options)\n   - License right-sizing analysis (reclaim 320 Umbrella, 45 DNA, 353 ISE)\n   - Route quotes to Procurement & Finance for approval\n\n**Option B: Open RMA only (most urgent)**\n   - Just handle the predicted hardware failure\n   - Defer contract/license decisions for now\n\n**Option C: Skip for now**\n   - I'll remind you in 7 days\n   - Risk: Fan failure could happen before then\n\nWhat would you like me to do?",
+                suggestions: ["Option A - Open all cases autonomously", "Option B - RMA only", "Show me cost savings analysis first"]
             },
-            { role: "user", text: "Show diff" },
+            { role: "user", text: "Option A - Open all cases autonomously" },
             {
                 role: "assistant",
-                text: "Diff: - class-map VIDEO-OLD; + class-map COLLAB-REALTIME (match dscp cs4 ef); + policy WAN-OUT priority percent 30 for COLLAB-REALTIME. Voice VLAN unaffected. Proceed?",
-                suggestions: ["Proceed", "Schedule tonight"]
-            },
-            { role: "user", text: "Proceed" },
-            {
-                role: "assistant",
-                text: "Template applied. Post-checks green: MOS +0.4, jitter −8ms. Notify branch manager and attach results to the Austin ticket?",
-                suggestions: ["Yes", "No"]
-            },
-            { role: "user", text: "Yes" },
-            {
-                role: "assistant",
-                text: "Done. Proactive care items: • SmartNet for 120 Catalyst 9K in Southeast expires in 60 days. • Umbrella SIG license pool at 95% utilization. • Predicted RMA: 3 fans on C9500-24Y (Charlotte) trending to failure. Open cases?",
-                suggestions: ["Open all cases", "Open RMA only", "Skip for now"]
-            },
-            { role: "user", text: "Open all cases" },
-            {
-                role: "assistant",
-                text: "Opened: renewal quote (1/3/5-yr with co-term), license right-size (reclaim 320 inactive; add 500 SIG temps), RMA advanced replacement for 3 fans tomorrow 10:00. Route quotes to Procurement and Finance for approval?",
-                suggestions: ["Yes, route for approval", "Send to Procurement only", "I'll handle approvals"]
-            },
-            { role: "user", text: "Yes, route for approval" },
-            {
-                role: "assistant",
-                text: "Routed with 48/24/4-hour SLA nudges. Want an executive one-pager (risk, savings, outcomes) for NetOps leadership?",
-                suggestions: ["Yes, create one-pager", "No, skip"]
-            },
-            { role: "user", text: "Yes, create one-pager" },
-            {
-                role: "assistant",
-                text: "Executive brief ready: PSIRT exposure projected −74% post-rollout; license reclaim saves ~$184k; WAN uplift +$62k offset by productivity. Delivered to Webex 'NetOps-Leadership' and email. Run a quick SOX/PCI compliance scan before the next audit window?",
-                suggestions: ["Run compliance scan", "Later"]
-            },
-            { role: "user", text: "Run compliance scan" },
-            {
-                role: "assistant",
-                text: "Compliance findings: • PCI: 12 branches using WPA2-PSK on guest; recommend WPA3 + unique PSKs via ISE. • SOX: 4 devices missing AAA accounting to TACACS. • Config drift: 22 switches off 'WF-Std-Access-23b'. Open remediation tasks with golden-config diffs?",
-                suggestions: ["Open tasks", "Export report only"]
-            },
-            { role: "user", text: "Open tasks" },
-            {
-                role: "assistant",
-                text: "Tasks created in ServiceNow with owner groups (Wireless, Access, Identity) and change windows aligned to audit calendar. Switch to Data Center posture?",
-                suggestions: ["Yes, show ACI posture", "Skip for now"]
-            },
-            { role: "user", text: "Yes, show ACI posture" },
-            {
-                role: "assistant",
-                text: "ACI Fabric-03: Leaf TCAM at 72%, trending 85% in ~6 months. Options: add 2 leafs; or quick cleanup (prune 318 unused filters, 41 stale contracts) to free ~9–12%. Which path?",
-                suggestions: ["Quick cleanup", "Build capacity plan", "Defer"]
-            },
-            { role: "user", text: "Quick cleanup" },
-            {
-                role: "assistant",
-                text: "Dry-run completed. Schedule cleanup Fri 02:00 local? I'll snapshot before/after and archive to Splunk + evidence store.",
-                suggestions: ["Apply Fri 02:00", "Reschedule", "Cancel"]
-            },
-            { role: "user", text: "Apply Fri 02:00" },
-            {
-                role: "assistant",
-                text: "Scheduled. Alert: I just detected an issue - Dallas datacenter Nexus 9K spine switch reporting high CoPP (Control Plane Policing) drops and elevated CPU (68%). Suspected protocol storm or misconfiguration. This could impact fabric stability. Want me to file a TAC case immediately?",
-                suggestions: ["Yes, file TAC case now", "Let me investigate first", "Just monitor for now"]
-            },
-            { role: "user", text: "Yes, file TAC case now" },
-            {
-                role: "assistant",
-                text: "Filing TAC case with Cisco... Uploading diagnostics: show tech-support, CoPP stats, CPU history, interface counters, fabric health, recent config changes. Severity: 2 (Critical - production network impacted). Contract: SmartNet 24x7x4. Case created successfully! **TAC Case #: 625847392**. Assigned to: Advanced Services Queue. Estimated response: <2 hours. You'll receive updates via email and Webex. Auto-attach live telemetry stream?",
-                suggestions: ["Yes, attach telemetry", "No, manual updates only"]
-            },
-            { role: "user", text: "Yes, attach telemetry" },
-            {
-                role: "assistant",
-                text: "Telemetry stream attached to TAC case 625847392. TAC engineer will have real-time access to: CPU/memory graphs, interface statistics, syslogs, SNMP traps, and fabric analytics. I'll monitor the case and notify you of any TAC updates or recommended actions. Meanwhile, Collaboration note: two CUCM clusters are one minor behind standard; propose rolling upgrades with zero-touch user impact. Proceed or defer?",
-                suggestions: ["Plan upgrades", "Defer 30 days"]
-            },
-            { role: "user", text: "Defer 30 days" },
-            {
-                role: "assistant",
-                text: "Acknowledged. I'll remind you two weeks before the deferral ends. Would you like an Executive Overview now or check license health?",
-                suggestions: ["Show Executive Overview", "License health", "We're done"]
-            },
-            { role: "user", text: "Show Executive Overview" },
-            {
-                role: "assistant",
-                text: "Executive Overview: Availability 99.94% (target 99.95%). Risk moving from High→Medium after pilots; projected Low post-rollout. Financials: ~$184k/yr savings from license reclaim; WAN spend +$62k offset by productivity gains. 90-day roadmap: PSIRT rollout, ACI cleanup, branch DIA upgrades, compliance closure, CUCM deferred upgrade. Schedule weekly digests and a monthly board-ready PDF?",
-                suggestions: ["Yes, both", "Weekly only", "No thanks"]
-            },
-            { role: "user", text: "Yes, both" },
-            {
-                role: "assistant",
-                text: "Set: Monday 08:00 PT weekly digest and first business day monthly board PDF. Track anything else?",
-                suggestions: ["Add SD-WAN user experience", "Track Zero-Trust maturity", "No changes"]
-            },
-            { role: "user", text: "Add SD-WAN user experience" },
-            {
-                role: "assistant",
-                text: "Added 'End-User Experience' panel (SaaS RTT, loss, app SLOs). I'll alert if any branch fails SLO for 2+ consecutive hours and open proactive tickets. Brief Cisco CSM and account team so they align roadmap and credits?",
-                suggestions: ["Yes, brief them", "No"]
-            },
-            { role: "user", text: "Yes, brief them" },
-            {
-                role: "assistant",
-                text: "Brief sent with links to change plans, approvals, and executive brief. Anything else today?",
-                suggestions: ["/priorities", "/what-changed", "File a TAC case", "We're done"]
-            },
-            { role: "user", text: "File a TAC case" },
-            {
-                role: "assistant",
-                text: "I can file a TAC case for you. What issue are you experiencing? Please describe the problem, affected device(s), and severity level, or I can file for any detected issues in our conversation. Would you like me to:",
-                suggestions: ["File for the Nexus 9K issue we found", "Report a different issue", "Never mind"]
-            },
-            { role: "user", text: "Report a different issue" },
-            {
-                role: "assistant",
-                text: "Got it. For a new issue, I'd collect: Device type/model, problem description, symptoms, troubleshooting steps tried, affected users/sites, and business impact. In production, you'd provide these details via voice or text, and I'd auto-file with diagnostics. For this demo, the Nexus 9K case (TAC #625847392) shows the complete workflow. Ready to continue?",
-                suggestions: ["Yes, continue", "Back to main menu"]
-            },
-            { role: "user", text: "Yes, continue" },
-            {
-                role: "assistant",
-                text: "Perfect. Remember: TAC case #625847392 is monitoring the Dallas Nexus spine issue. You'll get alerts when TAC responds or requests info. Anything else?",
-                suggestions: ["/priorities", "We're done"]
-            },
-            { role: "user", text: "We're done — thanks!" },
-            {
-                role: "assistant",
-                text: "Glad to help. I'll keep monitoring and nudging proactively. Ping me anytime with /priorities to reshuffle the roadmap or /what-changed for a daily diff summary."
+                text: "**Executing Proactive Care Actions - Autonomous Multi-System Orchestration**\n\n**[CASE 1: Hardware RMA - COMPLETE]**\n✅ RMA Case #: RMA-2026-084721\n   - Opened with TAC for 3x fan modules (C9500-24Y)\n   - Advance replacement approved (SmartNet 24x7x4)\n   - Shipping: Overnight to Charlotte datacenter\n   - Arrival: Tomorrow 10:00 AM EST\n   - Field engineer dispatch: Optional (I can guide your team remotely)\n   - **Status**: COMPLETE - Fans arriving tomorrow before predicted failure\n\n**[CASE 2: SmartNet Renewal Quotes - IN PROGRESS]**\n📋 Quote Request #: QT-2026-05447\n   - **1-Year Renewal**: $423K (current rate, no discount)\n   - **3-Year Renewal**: $1.18M total ($393K/year, 7% discount)\n   - **5-Year Co-Term**: $1.85M total ($370K/year, 12.5% discount + operational efficiency)\n   \n   **My Recommendation**: 5-year co-term\n   - **Why**: $265K savings over 5 years + all contracts aligned to single renewal date\n   - **Risk**: None (your refresh cycle is 7 years, so 5-year makes sense)\n   \n   ✅ Quotes generated and sent to:\n   - Procurement team (Sarah Johnson) - for contract approval\n   - Finance (Michael Chen) - for budget validation\n   - Your manager (cc'd for visibility)\n   - **SLA reminders set**: 48hr (Procurement), 24hr (Finance), 4hr (escalation)\n\n**[CASE 3: License Right-Sizing - ANALYSIS COMPLETE]**\n📊 License Optimization Report Generated:\n\n   **Umbrella SIG**:\n   - **Current**: 2,180 licenses, 2,071 active, 109 inactive\n   - **Inactive users**: 109 (terminated employees still in system)\n   - **Recommendation**: Reclaim 109, purchase 200 additional for growth = net +91 licenses\n   - **New cost**: $1.78M/year (was $2.03M) = **$246K annual savings**\n   - **Action**: I can auto-submit license adjustment to Smart Licensing portal - awaiting your approval\n\n   **DNA Advantage**:\n   - **Current**: 345 licenses, 300 active, 45 unused\n   - **Recommendation**: Reclaim 45 licenses, reassign to new sites or reduce next renewal\n   - **Savings**: ~$67K annually\n\n   **ISE Plus**:\n   - **Current**: 4,200 licenses, 3,847 active, 353 unused\n   - **Recommendation**: Reclaim 353, keep 50 buffer for growth\n   - **Savings**: ~$98K annually\n\n   **Total Annual Savings**: $411K (!)\n\n   ✅ Sent detailed report to Procurement + Finance with recommendations\n\n**[CASE 4: EOL Equipment Replacement Plan - DRAFTED]**\n📅 Equipment Refresh Plan for Q4 2026:\n   - **14x Catalyst 2960-X** → Replace with C9200 series (~$84K)\n   - **6x ASA 5515** → Migrate to FTD/Firepower (~$156K)\n   - **Total Budget**: $240K for EOL remediation\n   - **Timeline**: October-December 2026 (before annual audit)\n   \n   ✅ Draft plan sent to Network Architecture team for review\n   ✅ Budget request sent to Finance (Jennifer Watson) for Q4 allocation\n\n**[ORCHESTRATION COMPLETE - 4 minutes total]**\n\n**Summary of Autonomous Actions:**\n✅ Hardware failure prevented (fans shipping tomorrow)\n✅ $265K savings identified on SmartNet renewal\n✅ $411K annual savings from license optimization\n✅ $240K EOL budget request submitted\n✅ All stakeholders notified with SLA reminders\n✅ **Total value created**: $676K savings identified + 1 outage prevented\n\n**This is the power of AI-powered agentic operations: I didn't just find problems, I solved them across multiple systems (TAC, procurement, smart licensing, budgeting) in 4 minutes.**\n\nWhat should we tackle next?",
+                suggestions: ["Run compliance scan before audit", "Show me data center ACI posture", "Generate executive summary of everything we've done"]
             }
         ];
 
