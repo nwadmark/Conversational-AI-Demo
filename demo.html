@@ -1664,15 +1664,21 @@
                 <div class="message-bubble">${text}</div>
             `;
 
-            if (suggestions && suggestions.length > 0) {
-                html += '<div class="suggestions">';
-                suggestions.forEach((suggestion, index) => {
-                    html += `<button class="suggestion-btn" onclick="handleSuggestionClick(${index})">${suggestion}</button>`;
+                    if (suggestions && suggestions.length > 0) {
+                const suggestionsDiv = document.createElement('div');
+                suggestionsDiv.className = 'suggestions';
+
+                suggestions.forEach((suggestion) => {
+                    const button = document.createElement('button');
+                    button.className = 'suggestion-btn';
+                    button.textContent = suggestion;
+                    button.onclick = () => handleSuggestionClick(suggestion);
+                    suggestionsDiv.appendChild(button);
                 });
-                html += '</div>';
+
+                messageDiv.appendChild(suggestionsDiv);
             }
 
-            messageDiv.innerHTML = html;
             chatContainer.appendChild(messageDiv);
             scrollToBottom();
         }
